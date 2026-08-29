@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Instagram Stories — Rupal Mishra</title>
+<meta name="description" content="Rethinking story duration, editing and highlight archives.">
+<meta property="og:title" content="Instagram Stories — Rupal Mishra">
+<meta property="og:description" content="Rethinking story duration, editing and highlight archives.">
+<meta property="og:type" content="website">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background-color: oklch(0.185 0.014 265); color: oklch(0.94 0.008 265); font-family: "Geist", system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(1.1px 1.1px at 12% 18%, oklch(0.92 0.02 265 / 0.5), transparent 100%),
+      radial-gradient(1px 1px at 63% 42%, oklch(0.92 0.02 265 / 0.38), transparent 100%),
+      radial-gradient(1.3px 1.3px at 85% 77%, oklch(0.92 0.02 265 / 0.42), transparent 100%),
+      radial-gradient(1px 1px at 34% 88%, oklch(0.92 0.02 265 / 0.3), transparent 100%),
+      radial-gradient(1.6px 1.6px at 50% 12%, oklch(0.9 0.03 265 / 0.3), transparent 100%),
+      radial-gradient(1.2px 1.2px at 22% 65%, oklch(0.9 0.03 265 / 0.26), transparent 100%);
+    background-size: 260px 260px, 260px 260px, 260px 260px, 260px 260px, 430px 430px, 430px 430px;
+    background-attachment: fixed;
+  }
+  a { color: oklch(0.8 0.12 250); text-decoration: none; }
+  a:hover { color: oklch(0.8 0.14 45); }
+  ::selection { background: oklch(0.75 0.15 250 / 0.3); }
+</style>
+</helmet>
+
+<div>
+  <nav style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 32px; background: oklch(0.185 0.014 265 / 0.84); backdrop-filter: blur(10px); border-bottom: 1px solid oklch(0.305 0.013 265)">
+    <a href="index.html" style="font-family: 'DM Mono', monospace; font-size: 14px; color: oklch(0.78 0.014 265)" style-hover="color: oklch(0.8 0.14 45)">← back to all work</a>
+  </nav>
+
+  <header style="max-width: 1000px; margin: 0 auto; padding: 76px 32px 48px">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 32px; font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265); margin-bottom: 26px">
+      <span>Instagram Stories · Feature enhancement</span>
+      <span style="flex: none; letter-spacing: 0.04em">2024</span>
+    </div>
+    <h1 style="margin: 0 0 24px; font-size: clamp(32px, 5vw, 48px); line-height: 0.98; letter-spacing: -0.042em; font-weight: 600; text-wrap: balance">Giving people control over how long a story <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400">lasts</span></h1>
+    <p style="margin: 0; font-size: 20px; line-height: 1.55; color: oklch(0.78 0.014 265); max-width: 58ch; text-wrap: pretty">Three enhancements to Instagram stories — a custom story duration, in-app editing tools, and an archive option for highlights — grounded in a survey of 78 users.</p>
+  </header>
+
+  <div style="max-width: 1000px; margin: 0 auto; padding: 0 32px">
+    <img src="uploads/instagram-cover.png" alt="Instagram Stories case study cover" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+  </div>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 56px 32px 0">
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; border-top: 1px solid oklch(0.305 0.013 265); border-bottom: 1px solid oklch(0.305 0.013 265); padding: 26px 0">
+      <div><p style="margin: 0 0 6px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.66 0.015 265)">Role</p><p style="margin: 0; font-size: 16px; line-height: 1.45">UX Designer</p></div>
+      <div><p style="margin: 0 0 6px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.66 0.015 265)">Type</p><p style="margin: 0; font-size: 16px; line-height: 1.45">Feature enhancement</p></div>
+      <div><p style="margin: 0 0 6px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.66 0.015 265)">Research</p><p style="margin: 0; font-size: 16px; line-height: 1.45">78 survey responses</p></div>
+      <div><p style="margin: 0 0 6px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.66 0.015 265)">Platform</p><p style="margin: 0; font-size: 16px; line-height: 1.45">Mobile app</p></div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; font-size: 12px; color: oklch(0.74 0.015 265)">
+      <span style="padding: 5px 11px; border: 1px solid oklch(0.305 0.013 265); border-radius: 999px">User Research</span>
+      <span style="padding: 5px 11px; border: 1px solid oklch(0.305 0.013 265); border-radius: 999px">Competitive Analysis</span>
+      <span style="padding: 5px 11px; border: 1px solid oklch(0.305 0.013 265); border-radius: 999px">User Flow</span>
+      <span style="padding: 5px 11px; border: 1px solid oklch(0.305 0.013 265); border-radius: 999px">Wireframing</span>
+      <span style="padding: 5px 11px; border: 1px solid oklch(0.305 0.013 265); border-radius: 999px">Hi-Fi Design</span>
+    </div>
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">
+    <div style="padding: 32px; border: 1px solid oklch(0.4 0.08 300); border-radius: 12px; background: oklch(0.24 0.03 300)">
+      <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 300)">Update · two years on</p>
+      <h2 style="margin: 0 0 14px; font-size: 28px; line-height: 1.2; letter-spacing: -0.03em; font-weight: 600; text-wrap: pretty">I made this case study two years ago. Instagram's new premium tier now covers several of the same ideas.</h2>
+      <p style="margin: 0 0 24px; font-size: 16px; line-height: 1.65; color: oklch(0.86 0.012 265); max-width: 74ch; text-wrap: pretty">Instagram Plus is Meta's premium subscription service priced at $3.99 per month (or Rs 299 per month in India), offering exclusive features focused on Story control, audience insights, and profile customization.</p>
+      <p style="margin: 0; font-size: 16px; line-height: 1.65; color: oklch(0.86 0.012 265); max-width: 74ch; text-wrap: pretty">Story Extend doubles a story's lifespan to 48 hours, and Multiple Story Audiences adds custom audience lists beyond Close Friends — close to the story-duration control this case study proposed.</p>
+    </div>
+  </section>
+
+  <section style="max-width: 760px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">01 · Overview</p>
+    <p style="margin: 0 0 20px; font-size: 18px; line-height: 1.68; color: oklch(0.86 0.012 265); text-wrap: pretty">With Instagram stories being such a popular feature, users are eager for more flexibility and control over their content. However, limitations like the 24-hour time limit, lack of advanced editing tools, absence of a highlight archiving option, and noticeable quality drops after uploading create a need for enhancement.</p>
+    <p style="margin: 0; font-size: 18px; line-height: 1.68; color: oklch(0.86 0.012 265); text-wrap: pretty">Through this case study, I aim to explore solutions to address these issues, making Instagram stories more versatile, user-friendly, and visually appealing for users.</p>
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">02 · Problem</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch">
+      <div style="padding: 28px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <h2 style="margin: 0 0 14px; font-size: 32px; letter-spacing: -0.03em; font-weight: 600">Problem</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.65; color: oklch(0.84 0.012 265); text-wrap: pretty">Instagram stories are popular for sharing moments, but limitations impact user experience. Stories vanish after 24 hours, lack editing tools, don't allow highlight archiving, and often lose quality upon upload. This case study aims to propose enhancements to make stories more engaging, flexible, and visually appealing.</p>
+      </div>
+      <div style="padding: 28px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <h2 style="margin: 0 0 18px; font-size: 32px; letter-spacing: -0.03em; font-weight: 600">What can we do?</h2>
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 12px"><span style="font-family: 'DM Mono', monospace; font-size: 13px; color: oklch(0.74 0.16 300)">1</span><span style="font-size: 16px; line-height: 1.5">Introducing a personalized story duration option.</span></div>
+          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 12px"><span style="font-family: 'DM Mono', monospace; font-size: 13px; color: oklch(0.74 0.16 300)">2</span><span style="font-size: 16px; line-height: 1.5">Adding basic in-app editing tools.</span></div>
+          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 12px"><span style="font-family: 'DM Mono', monospace; font-size: 13px; color: oklch(0.74 0.16 300)">3</span><span style="font-size: 16px; line-height: 1.5">Providing an option to archive highlights.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">03 · Discover</p>
+    <h2 style="margin: 0 0 10px; font-size: 32px; line-height: 1.15; letter-spacing: -0.03em; font-weight: 600">User interviews and an online survey</h2>
+    <p style="margin: 0 0 28px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 70ch; text-wrap: pretty">Conducted an online survey of 75+ participants to gather insights into their challenges with Instagram stories.</p>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px">
+      <div style="padding: 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)"><p style="margin: 0 0 8px; font-size: 40px; line-height: 1; letter-spacing: -0.04em; font-weight: 600; color: oklch(0.74 0.16 300)">74.4%</p><p style="margin: 0; font-size: 14px; line-height: 1.5; color: oklch(0.8 0.012 265)">want to decide how long their stories stay on their profile, beyond 24 hours</p></div>
+      <div style="padding: 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)"><p style="margin: 0 0 8px; font-size: 40px; line-height: 1; letter-spacing: -0.04em; font-weight: 600; color: oklch(0.74 0.16 300)">98.7%</p><p style="margin: 0; font-size: 14px; line-height: 1.5; color: oklch(0.8 0.012 265)">want basic editing — cropping, adjusting — inside the app instead of external apps</p></div>
+      <div style="padding: 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)"><p style="margin: 0 0 8px; font-size: 40px; line-height: 1; letter-spacing: -0.04em; font-weight: 600; color: oklch(0.74 0.16 300)">80.8%</p><p style="margin: 0; font-size: 14px; line-height: 1.5; color: oklch(0.8 0.012 265)">want an archive option for highlights, the way posts already have one</p></div>
+    </div>
+    <p style="margin: 14px 0 22px; font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.6 0.015 265)">n = 78 responses</p>
+    <img src="uploads/dark-user interview.png" alt="Quotes from user interviews" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">04 · Competitive analysis</p>
+    <p style="margin: 0 0 26px; font-size: 18px; line-height: 1.68; color: oklch(0.86 0.012 265); max-width: 74ch; text-wrap: pretty">The competitive analysis shows major platforms like Instagram, Facebook, WhatsApp, and X lack key storytelling features. Fixed story durations, no highlight archive, and limited editing tools (offered only by WhatsApp and X) highlight gaps. Users are left wanting more flexibility and better tools for self-expression, presenting an opportunity to bridge these gaps with innovative solutions.</p>
+    <img src="uploads/dark-competitive analysis.png" alt="Competitive analysis table" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">05 · User personas</p>
+    <h2 style="margin: 0 0 10px; font-size: 32px; line-height: 1.15; letter-spacing: -0.03em; font-weight: 600">Visual curators and efficiency seekers</h2>
+    <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 70ch; text-wrap: pretty">Some users prioritize the aesthetics and overall feel of their profiles, while others focus more on functionality, valuing simplicity and ease of use over appearance.</p>
+    <img src="uploads/user persona 1.png" alt="User personas: Type A visual curators and Type B efficiency seekers" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">06 · Design process</p>
+    <img src="uploads/dark-design process.png" alt="Design process: discover, ideate, design, test" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">07 · Ideate</p>
+    <h2 style="margin: 0 0 10px; font-size: 32px; line-height: 1.15; letter-spacing: -0.03em; font-weight: 600">Solutions</h2>
+    <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 70ch; text-wrap: pretty">In exploring potential solutions for the issues people raised, I developed a few possible approaches.</p>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 22px">
+      <div style="padding: 22px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265); font-size: 16px; line-height: 1.5">Enable users to customize how long their stories remain on their profile.</div>
+      <div style="padding: 22px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265); font-size: 16px; line-height: 1.5">Offer essential photo editing features such as cropping, filtering, and enhancement.</div>
+      <div style="padding: 22px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265); font-size: 16px; line-height: 1.5">Enable users to archive highlights similar to stories and posts.</div>
+      <div style="padding: 22px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265); font-size: 16px; line-height: 1.5">Prevent quality loss when uploading images.</div>
+      <div style="padding: 22px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265); font-size: 16px; line-height: 1.5">Allow users to upload custom fonts for their stories.</div>
+    </div>
+    <h3 style="margin: 44px 0 6px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">User flow</h3>
+    <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 62ch; text-wrap: pretty">Two paths from the same entry point: upload a story with a chosen duration, or archive a highlight from the profile page.</p>
+    <img src="uploads/dark-user flow.png" alt="User flow for story duration, editing and archiving highlights" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">08 · Design</p>
+    <h2 style="margin: 0 0 10px; font-size: 32px; line-height: 1.15; letter-spacing: -0.03em; font-weight: 600">Wireframes</h2>
+    <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 70ch; text-wrap: pretty">The first pass put story duration next to the upload button and hid the rest behind a hamburger menu. Both were dropped: one crowded the upload action, the other buried familiar controls.</p>
+    <div style="display: flex; flex-direction: column; gap: 18px">
+      <img src="uploads/initial wireframes.png" alt="Initial wireframes and the reasons they were changed" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+      <img src="uploads/final wireframes.png" alt="Final wireframes for story duration" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+      <img src="uploads/wireframes.png" alt="Wireframe for editing tools" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+      <img src="uploads/Design 3.png" alt="Wireframe for highlights archive" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+    </div>
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">09 · Hi-Fi designs</p>
+    <h2 style="margin: 0 0 10px; font-size: 32px; line-height: 1.15; letter-spacing: -0.03em; font-weight: 600">Three additions, no new navigation</h2>
+    <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 70ch; text-wrap: pretty">Story duration appears at the moment of upload, editing sits under the existing effects icon, and archiving joins the highlight menu people already open.</p>
+    <div style="display: flex; flex-direction: column; gap: 18px">
+      <img src="uploads/hifi 2.png" alt="Hi-Fi designs for story duration" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+      <img src="uploads/hifi.png" alt="Hi-Fi designs for editing tools" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+      <img src="uploads/hifi 3.png" alt="Hi-Fi designs for highlights archive" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+    </div>
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">10 · Business impacts</p>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px">
+      <div style="padding: 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)"><p style="margin: 0 0 10px; font-size: 20px; line-height: 1.25; font-weight: 600; color: oklch(0.8 0.14 300)">Increased User Engagement</p><p style="margin: 0; font-size: 14px; line-height: 1.55; color: oklch(0.8 0.012 265)">Extended story duration and better tools can keep users interacting longer.</p></div>
+      <div style="padding: 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)"><p style="margin: 0 0 10px; font-size: 20px; line-height: 1.25; font-weight: 600; color: oklch(0.8 0.14 300)">Competitive Advantage</p><p style="margin: 0; font-size: 14px; line-height: 1.55; color: oklch(0.8 0.012 265)">Unique features set Instagram apart from competitors, attracting new users.</p></div>
+      <div style="padding: 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)"><p style="margin: 0 0 10px; font-size: 20px; line-height: 1.25; font-weight: 600; color: oklch(0.8 0.14 300)">Brand Loyalty</p><p style="margin: 0; font-size: 14px; line-height: 1.55; color: oklch(0.8 0.012 265)">Addressing user needs builds trust and strengthens loyalty.</p></div>
+      <div style="padding: 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)"><p style="margin: 0 0 10px; font-size: 20px; line-height: 1.25; font-weight: 600; color: oklch(0.8 0.14 300)">Higher Retention Rates</p><p style="margin: 0; font-size: 14px; line-height: 1.55; color: oklch(0.8 0.012 265)">Improved features reduce frustrations, encouraging users to stay longer.</p></div>
+      <div style="padding: 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)"><p style="margin: 0 0 10px; font-size: 20px; line-height: 1.25; font-weight: 600; color: oklch(0.8 0.14 300)">Revenue Growth</p><p style="margin: 0; font-size: 14px; line-height: 1.55; color: oklch(0.8 0.012 265)">Improved features reduce frustrations, encouraging users to stay longer.</p></div>
+      <div style="padding: 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)"><p style="margin: 0 0 10px; font-size: 20px; line-height: 1.25; font-weight: 600; color: oklch(0.8 0.14 300)">Market Expansion</p><p style="margin: 0; font-size: 14px; line-height: 1.55; color: oklch(0.8 0.012 265)">Enhanced features can attract new demographics, broadening Instagram's user base.</p></div>
+    </div>
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 22px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">11 · Learnings and challenges</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px">
+      <div style="padding: 28px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <h3 style="margin: 0 0 18px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Learnings</h3>
+        <div style="display: flex; flex-direction: column; gap: 16px; font-size: 15px; line-height: 1.6; color: oklch(0.84 0.012 265)">
+          <div><p style="margin: 0 0 4px; font-weight: 600; color: oklch(0.8 0.14 300)">User Needs and Pain Points</p><p style="margin: 0">Users want flexible story durations, better editing tools, and highlight archiving for easier storytelling.</p></div>
+          <div><p style="margin: 0 0 4px; font-weight: 600; color: oklch(0.8 0.14 300)">Competitive Analysis Insights</p><p style="margin: 0">Existing platforms lack key storytelling features, creating opportunities to boost engagement and satisfaction.</p></div>
+          <div><p style="margin: 0 0 4px; font-weight: 600; color: oklch(0.8 0.14 300)">Design Priorities</p><p style="margin: 0">Simple, accessible, and fast designs help users create appealing stories effortlessly.</p></div>
+          <div><p style="margin: 0 0 4px; font-weight: 600; color: oklch(0.8 0.14 300)">Iterative Feedback</p><p style="margin: 0">Testing prototypes with users emphasizes balancing functionality and usability to keep tools intuitive and meet user expectations.</p></div>
+        </div>
+      </div>
+      <div style="padding: 28px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <h3 style="margin: 0 0 18px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Challenges</h3>
+        <div style="display: flex; flex-direction: column; gap: 16px; font-size: 15px; line-height: 1.6; color: oklch(0.84 0.012 265)">
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 10px"><span style="font-family: 'DM Mono', monospace; font-size: 13px; color: oklch(0.74 0.16 300)">1</span><div><p style="margin: 0 0 4px; font-weight: 600">User Needs and Pain Points</p><p style="margin: 0">Narrowing down the most impactful problems in Instagram stories.</p></div></div>
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 10px"><span style="font-family: 'DM Mono', monospace; font-size: 13px; color: oklch(0.74 0.16 300)">2</span><div><p style="margin: 0 0 4px; font-weight: 600">Prioritizing Features</p><p style="margin: 0">Choosing the most impactful features.</p></div></div>
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 10px"><span style="font-family: 'DM Mono', monospace; font-size: 13px; color: oklch(0.74 0.16 300)">3</span><div><p style="margin: 0 0 4px; font-weight: 600">Balancing Usability and Innovation</p><p style="margin: 0">Creating practical yet innovative solutions.</p></div></div>
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 10px"><span style="font-family: 'DM Mono', monospace; font-size: 13px; color: oklch(0.74 0.16 300)">4</span><div><p style="margin: 0 0 4px; font-weight: 600">Feasibility</p><p style="margin: 0">Ensuring solutions could be realistically implemented.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 76px 32px 40px">
+    <a href="efile.html" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 40px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265); color: oklch(0.94 0.008 265)" style-hover="border-color: oklch(0.75 0.15 250); background: oklch(0.265 0.018 265)">
+      <div>
+        <p style="margin: 0 0 8px; font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">Next case study</p>
+        <h3 style="margin: 0; font-size: 32px; letter-spacing: -0.03em; font-weight: 600">Untangling a 40-year-old file manager</h3>
+      </div>
+      <span style="font-size: 32px; color: oklch(0.75 0.15 250)">→</span>
+    </a>
+  </section>
+
+  <footer style="padding: 24px 32px 40px; max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">
+    <a href="index.html" style="color: oklch(0.66 0.015 265)">Rupal Mishra</a>
+    <a href="mailto:rupalmishra.2003@gmail.com" style="color: oklch(0.66 0.015 265)">rupalmishra.2003@gmail.com</a>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>
