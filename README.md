@@ -1,6 +1,15 @@
 # Rupal Mishra — portfolio
 
-Static site. No build step, no dependencies, nothing to install.
+Static site. No build step and nothing to install — but the pages do load three
+scripts from a CDN at runtime, so **the first load needs internet access**:
+
+- `https://unpkg.com/react@18.3.1/umd/react.production.min.js`
+- `https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js`
+- `https://unpkg.com/@babel/standalone@7.29.0/babel.min.js`
+
+If you plan to show the site on unreliable wifi, or want a faster first paint,
+download those three files into `vendor/` and point the URLs in `support.js` at
+them instead. Everything else in the folder is already local.
 
 ## Files
 
@@ -16,7 +25,7 @@ Any static server works, e.g.:
 
     npx serve .
 
-Opening `index.html` straight off disk also works.
+A server is required — opening `index.html` straight off disk will not render.
 
 ## Deploy
 

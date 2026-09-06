@@ -32,6 +32,40 @@
   a { color: oklch(0.8 0.12 250); text-decoration: none; }
   a:hover { color: oklch(0.8 0.14 45); }
   ::selection { background: oklch(0.75 0.15 250 / 0.3); }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { overflow-x: hidden; max-width: 100%; }
+
+  /* responsive: collapse fixed grids, keep tables scrollable */
+  img, svg, table { max-width: 100%; }
+  @media (max-width: 1080px) {
+    [style*="grid-template-columns: 1.28fr"],
+    [style*="grid-template-columns: 0.62fr"],
+    [style*="grid-template-columns: 1fr 380px"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns: 0.9fr"],
+    [style*="grid-template-columns: 1.1fr"] { grid-template-columns: minmax(0,1fr) !important; gap: 36px !important; }
+    [style*="grid-template-columns: 190px 1fr 1.25fr"] { grid-template-columns: minmax(0,1fr) !important; gap: 10px !important; }
+    [style*="grid-template-columns: repeat(4"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+    [style*="grid-template-columns: 0.85fr 1.15fr"],
+    [style*="grid-template-columns: 1.15fr 0.85fr"] { grid-template-columns: minmax(0,1fr) !important; gap: 20px !important; }
+  }
+  @media (max-width: 860px) {
+    [style*="grid-template-columns: repeat(3"],
+    [style*="grid-template-columns: repeat(2"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+    div:has(> table) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { min-width: 560px; }
+  }
+  @media (max-width: 620px) {
+    [style*="grid-template-columns"] { grid-template-columns: minmax(0,1fr) !important; gap: 16px !important; }
+    section, header, nav { padding-left: 18px !important; padding-right: 18px !important; }
+    nav [style*="gap: 26px"] { gap: 15px !important; font-size: 13px !important; }
+    header { padding-top: 48px !important; padding-bottom: 32px !important; }
+    [style*="grid-template-columns: 250px 1fr"] { grid-template-columns: minmax(0,1fr) !important; gap: 8px !important; }
+    h2 { font-size: 26px !important; }
+    h3 { font-size: 24px !important; }
+    a[style*="justify-content: space-between"][style*="padding: 40px"] { flex-direction: column !important; align-items: flex-start !important; padding: 28px !important; }
+  }
 </style>
 </helmet>
 
@@ -47,6 +81,14 @@
     </div>
     <h1 style="margin: 0 0 24px; font-size: clamp(32px, 5vw, 48px); line-height: 0.98; letter-spacing: -0.042em; font-weight: 600; text-wrap: balance">Giving people control over how long a story <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400">lasts</span></h1>
     <p style="margin: 0; font-size: 20px; line-height: 1.55; color: oklch(0.78 0.014 265); max-width: 58ch; text-wrap: pretty">Three enhancements to Instagram stories — a custom story duration, in-app editing tools, and an archive option for highlights — grounded in a survey of 78 users.</p>
+    <div style="margin-top: 34px; border: 1px solid oklch(0.305 0.013 265); border-left: 2px solid oklch(0.8 0.14 45); border-radius: 12px; background: oklch(0.225 0.015 265); padding: 24px 28px 26px">
+      <div style="font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: oklch(0.8 0.14 45); margin-bottom: 14px">Outcome</div>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: oklch(0.84 0.012 265); max-width: 74ch; text-wrap: pretty">A self-directed concept, framed as a hypothesis rather than a fix: 78 survey responses can show where people work around the current tools, not that a redesign would beat a mature product team&rsquo;s version.</p>
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: oklch(0.84 0.012 265); max-width: 74ch; text-wrap: pretty">What the survey does support: users leave the app to edit and come back to post, and they delete and repost to correct a mistake. Both are workarounds worth designing against.</p>
+      </div>
+    </div>
+
   </header>
 
   <div style="max-width: 1000px; margin: 0 auto; padding: 0 32px">
@@ -125,7 +167,37 @@
     <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">05 · User personas</p>
     <h2 style="margin: 0 0 10px; font-size: 32px; line-height: 1.15; letter-spacing: -0.03em; font-weight: 600">Visual curators and efficiency seekers</h2>
     <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 70ch; text-wrap: pretty">Some users prioritize the aesthetics and overall feel of their profiles, while others focus more on functionality, valuing simplicity and ease of use over appearance.</p>
-    <img src="uploads/user persona 1.png" alt="User personas: Type A visual curators and Type B efficiency seekers" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px" />
+<p style="margin: 0 0 26px; padding: 12px 16px; border-left: 2px solid oklch(0.8 0.14 45); font-size: 15px; line-height: 1.55; color: oklch(0.7 0.015 265); max-width: 76ch; text-wrap: pretty">From a Google Form survey of 78 Instagram users, plus the competitive teardown above. A survey tells you what people say they do at scale, which is why these two are drawn as patterns in the responses rather than as individuals I sat with &mdash; and why the concept below is framed as a hypothesis to test, not a fix I can prove.</p>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <h3 style="margin: 0; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Ira, 22</h3>
+          <p style="margin: 0; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.015 265)">Design student · posts 3&ndash;4 stories a day</p>
+        </div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.62; color: oklch(0.84 0.012 265); text-wrap: pretty">Treats her story as a running feed and her highlights as a portfolio. She edits in a separate app first, then uploads, because the in-app tools cannot do what she wants. When a clip runs past the segment limit she cuts it in three and accepts that viewers tap away by the second part.</p>
+        <p style="margin: 0; padding-left: 16px; border-left: 2px solid oklch(0.8 0.14 45); font-family: 'Instrument Serif', serif; font-style: italic; font-size: 21px; line-height: 1.35; color: oklch(0.92 0.01 265); text-wrap: pretty">&ldquo;I edit somewhere else and come back just to post it.&rdquo;</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 4px">
+          <p style="margin: 0; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.015 265)">What they need</p>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Longer segments before the cut</span></div>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Editing that does not require a second app</span></div>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Highlights that read like a body of work, not an archive</span></div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <h3 style="margin: 0; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Sagar, 30</h3>
+          <p style="margin: 0; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.015 265)">Runs a home bakery account · Pune</p>
+        </div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.62; color: oklch(0.84 0.012 265); text-wrap: pretty">Posts the day&rsquo;s menu as a story every morning and answers orders from replies. When a price or an item changes he deletes the story and posts it again, losing the views and the replies already on it, and he cannot tell afterwards which day sold what.</p>
+        <p style="margin: 0; padding-left: 16px; border-left: 2px solid oklch(0.8 0.14 45); font-family: 'Instrument Serif', serif; font-style: italic; font-size: 21px; line-height: 1.35; color: oklch(0.92 0.01 265); text-wrap: pretty">&ldquo;If I get one line wrong I have to delete it and start the day again.&rdquo;</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 4px">
+          <p style="margin: 0; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.015 265)">What they need</p>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Edit a live story without reposting it</span></div>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Keep replies attached when something changes</span></div>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Some record of what he posted last week</span></div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">

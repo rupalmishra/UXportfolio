@@ -32,6 +32,40 @@
   a { color: oklch(0.8 0.12 250); text-decoration: none; }
   a:hover { color: oklch(0.8 0.14 45); }
   ::selection { background: oklch(0.75 0.15 250 / 0.3); }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { overflow-x: hidden; max-width: 100%; }
+
+  /* responsive: collapse fixed grids, keep tables scrollable */
+  img, svg, table { max-width: 100%; }
+  @media (max-width: 1080px) {
+    [style*="grid-template-columns: 1.28fr"],
+    [style*="grid-template-columns: 0.62fr"],
+    [style*="grid-template-columns: 1fr 380px"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns: 0.9fr"],
+    [style*="grid-template-columns: 1.1fr"] { grid-template-columns: minmax(0,1fr) !important; gap: 36px !important; }
+    [style*="grid-template-columns: 190px 1fr 1.25fr"] { grid-template-columns: minmax(0,1fr) !important; gap: 10px !important; }
+    [style*="grid-template-columns: repeat(4"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+    [style*="grid-template-columns: 0.85fr 1.15fr"],
+    [style*="grid-template-columns: 1.15fr 0.85fr"] { grid-template-columns: minmax(0,1fr) !important; gap: 20px !important; }
+  }
+  @media (max-width: 860px) {
+    [style*="grid-template-columns: repeat(3"],
+    [style*="grid-template-columns: repeat(2"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+    div:has(> table) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { min-width: 560px; }
+  }
+  @media (max-width: 620px) {
+    [style*="grid-template-columns"] { grid-template-columns: minmax(0,1fr) !important; gap: 16px !important; }
+    section, header, nav { padding-left: 18px !important; padding-right: 18px !important; }
+    nav [style*="gap: 26px"] { gap: 15px !important; font-size: 13px !important; }
+    header { padding-top: 48px !important; padding-bottom: 32px !important; }
+    [style*="grid-template-columns: 250px 1fr"] { grid-template-columns: minmax(0,1fr) !important; gap: 8px !important; }
+    h2 { font-size: 26px !important; }
+    h3 { font-size: 24px !important; }
+    a[style*="justify-content: space-between"][style*="padding: 40px"] { flex-direction: column !important; align-items: flex-start !important; padding: 28px !important; }
+  }
 </style>
 </helmet>
 
@@ -48,6 +82,14 @@
     <h1 style="margin: 0 0 24px; font-size: clamp(32px, 5vw, 48px); line-height: 0.98; letter-spacing: -0.042em; font-weight: 600; text-wrap: balance">A diet planner that knows what people eat in your <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400">region</span></h1>
     <p style="margin: 0; font-size: 20px; line-height: 1.55; color: oklch(0.78 0.014 265); max-width: 58ch; text-wrap: pretty">Calmory generates meal plans built around a person's actual region, grocery budget, cooking time, and fasting practices — then tracks what they actually ate against it.</p>
 
+
+    <div style="margin-top: 34px; border: 1px solid oklch(0.305 0.013 265); border-left: 2px solid oklch(0.8 0.14 45); border-radius: 12px; background: oklch(0.225 0.015 265); padding: 24px 28px 26px">
+      <div style="font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: oklch(0.8 0.14 45); margin-bottom: 14px">Outcome</div>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: oklch(0.84 0.012 265); max-width: 74ch; text-wrap: pretty">A two-week concept, not a shipped product &mdash; so the honest measure is whether it answers the gaps the research found.</p>
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: oklch(0.84 0.012 265); max-width: 74ch; text-wrap: pretty">Every gap in the teardown of HealthifyMe, FITTR and Fitelo &mdash; regional food, fasting days, budget, the jump from plan to groceries &mdash; maps to a specific decision in the app. Walked back through the same people I interviewed, a fasting day could be planned without leaving the flow.</p>
+      </div>
+    </div>
     <div style="margin-top: 40px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.215 0.015 265); padding: 30px 30px 32px">
       <div style="font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: oklch(0.8 0.14 45); margin-bottom: 22px">The MVP</div>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px">
@@ -321,11 +363,47 @@
     </div>
   </section>
 
-  <section style="max-width: 1120px; margin: 0 auto; padding: 72px 32px 0">
-    <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">04 · Design exploration</p>
+  <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">04 · Who it is for</p>
+    <h2 style="margin: 0 0 14px; font-size: 32px; line-height: 1.15; letter-spacing: -0.03em; font-weight: 600">Two people who had already quit a diet app</h2>
+    <p style="margin: 0 0 26px; padding: 12px 16px; border-left: 2px solid oklch(0.8 0.14 45); font-size: 15px; line-height: 1.55; color: oklch(0.7 0.015 265); max-width: 76ch; text-wrap: pretty">From conversations with friends and people at my gym who had installed a tracking app and stopped using it, alongside the review teardown above. Small sample, people I could actually follow up with &mdash; which is how the fasting problem surfaced at all.</p>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <h3 style="margin: 0; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Sneha, 24</h3>
+          <p style="margin: 0; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.015 265)">First job · shared PG kitchen · Pune</p>
+        </div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.62; color: oklch(0.84 0.012 265); text-wrap: pretty">Cooks maybe twice a week and orders in the rest. She lasted eleven days on a tracking app before the daily suggestions stopped matching anything she could actually make in a shared kitchen, and logging a home-cooked meal took long enough that she stopped opening the app.</p>
+        <p style="margin: 0; padding-left: 16px; border-left: 2px solid oklch(0.8 0.14 45); font-family: 'Instrument Serif', serif; font-style: italic; font-size: 21px; line-height: 1.35; color: oklch(0.92 0.01 265); text-wrap: pretty">&ldquo;It told me to eat quinoa. I have rice, dal, and whatever is in the PG kitchen.&rdquo;</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 4px">
+          <p style="margin: 0; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.015 265)">What they need</p>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Plans built from what is in her kitchen and her budget</span></div>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Logging that takes seconds, not a search per ingredient</span></div>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>A skipped meal that does not mark the whole day failed</span></div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <h3 style="margin: 0; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Mahesh, 31</h3>
+          <p style="margin: 0; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.015 265)">Trains four days a week · keeps Monday fasts</p>
+        </div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.62; color: oklch(0.84 0.012 265); text-wrap: pretty">Tracks protein carefully on training days and fasts every Monday. On fasting days the app has nothing to offer him, so his week shows up as a broken streak and a red bar &mdash; and he stops opening it until the numbers look good again.</p>
+        <p style="margin: 0; padding-left: 16px; border-left: 2px solid oklch(0.8 0.14 45); font-family: 'Instrument Serif', serif; font-style: italic; font-size: 21px; line-height: 1.35; color: oklch(0.92 0.01 265); text-wrap: pretty">&ldquo;On vrat days the app just shows me a red bar. So I stop opening it that week.&rdquo;</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 4px">
+          <p style="margin: 0; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.015 265)">What they need</p>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Fasting days planned for, not counted as failure</span></div>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Protein targets that work on regional vegetarian food</span></div>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Progress measured over a week, not a perfect day</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 844px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">05 · Design exploration</p>
     <h2 style="margin: 0 0 10px; font-size: 32px; line-height: 1.15; letter-spacing: -0.03em; font-weight: 600">Four iterations of the home screen</h2>
     <p style="margin: 0 0 28px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 70ch">Paper first. From stacked metrics to a Today/Week split, separate protein and calorie rings, and clearer meal categories.</p>
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px">
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
       <div style="padding: 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)"><img src="uploads/1.jpeg" alt="v1 wireframe sketch" style="width: 100%; display: block; margin-bottom: 18px; border-radius: 8px; background: oklch(0.94 0.008 265)" /><p style="margin: 0 0 12px; display: inline-block; padding: 4px 10px; border-radius: 999px; background: oklch(0.42 0.16 285); font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.97 0.01 285)">v1</p><p style="margin: 0; font-size: 16px; line-height: 1.5">Arc meters + weekday strip</p><p style="margin: 8px 0 0; font-size: 14px; line-height: 1.5; color: oklch(0.7 0.015 265)">Protein and calories as arcs, with the week running across the top.</p></div>
       <div style="padding: 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)"><img src="uploads/2.jpeg" alt="v2 wireframe sketch" style="width: 100%; display: block; margin-bottom: 18px; border-radius: 8px; background: oklch(0.94 0.008 265)" /><p style="margin: 0 0 12px; display: inline-block; padding: 4px 10px; border-radius: 999px; background: oklch(0.42 0.16 285); font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.97 0.01 285)">v2</p><p style="margin: 0; font-size: 16px; line-height: 1.5">Today/Week tabs, one combined ring</p><p style="margin: 8px 0 0; font-size: 14px; line-height: 1.5; color: oklch(0.7 0.015 265)">Split the timeframe, but a single ring hid which target was missed.</p></div>
       <div style="padding: 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)"><img src="uploads/4.jpeg" alt="v3 wireframe sketch" style="width: 100%; display: block; margin-bottom: 18px; border-radius: 8px; background: oklch(0.94 0.008 265)" /><p style="margin: 0 0 12px; display: inline-block; padding: 4px 10px; border-radius: 999px; background: oklch(0.42 0.16 285); font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.97 0.01 285)">v3</p><p style="margin: 0; font-size: 16px; line-height: 1.5">Separate P &amp; C rings, Add-to-Meal</p><p style="margin: 8px 0 0; font-size: 14px; line-height: 1.5; color: oklch(0.7 0.015 265)">Two rings read faster, and logging moved onto the card itself.</p></div>
@@ -333,12 +411,12 @@
     </div>
   </section>
 
-  <section style="max-width: 1120px; margin: 0 auto; padding: 72px 32px 0">
-    <p style="margin: 0 0 22px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">05 · Final designs</p>
+  <section style="max-width: 868px; margin: 0 auto; padding: 72px 32px 0">
+    <p style="margin: 0 0 22px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">06 · Final designs</p>
     <div style="margin-top: 44px">
       <h3 style="margin: 0 0 6px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Onboarding</h3>
       <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 62ch; text-wrap: pretty">Four steps collect what the plan actually needs: pincode for regional cuisine, goal and activity, allergies and cooking time, and the days non-veg is on the table.</p>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px">
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px">
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/00a-landing-before-login.png" alt="landing" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">landing</figcaption></figure>
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/00d-sign-up.png" alt="create account" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">create account</figcaption></figure>
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/01-basic-information.png" alt="basic information" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">basic information</figcaption></figure>
@@ -351,7 +429,7 @@
     <div style="margin-top: 44px">
       <h3 style="margin: 0 0 6px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Home and fasting</h3>
       <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 62ch; text-wrap: pretty">One toggle turns the day into a fasting day. Grains, onion and garlic drop out of the picks and the plan re-curates in place.</p>
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px">
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px">
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/06-dashboard.png" alt="dashboard" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">dashboard</figcaption></figure>
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/06a-fasting-curating.png" alt="curating fasting options" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">curating fasting options</figcaption></figure>
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/06b-fasting-curated.png" alt="fasting day curated" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">fasting day curated</figcaption></figure>
@@ -362,7 +440,7 @@
     <div style="margin-top: 44px">
       <h3 style="margin: 0 0 6px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Browsing meals</h3>
       <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 62ch; text-wrap: pretty">Category screens are filtered to what people actually cook in that region, with calories and protein visible before you commit.</p>
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px">
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px">
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/10-category-breakfast.png" alt="breakfast" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">breakfast</figcaption></figure>
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/10b-category-lunch.png" alt="lunch" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">lunch</figcaption></figure>
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/10c-category-snacks.png" alt="snacks" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">snacks</figcaption></figure>
@@ -373,7 +451,7 @@
     <div style="margin-top: 44px">
       <h3 style="margin: 0 0 6px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Logging what you ate</h3>
       <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 62ch; text-wrap: pretty">Photo, search or plain language. If the day went sideways, the app estimates it and rebalances the rest instead of breaking the streak.</p>
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px">
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px">
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/08b-food-log.png" alt="food log" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">food log</figcaption></figure>
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/08c-manual-log.png" alt="manual log" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">manual log</figcaption></figure>
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/09-meal-prep-estimate.png" alt="what did you actually eat" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">what did you actually eat</figcaption></figure>
@@ -384,7 +462,7 @@
     <div style="margin-top: 44px">
       <h3 style="margin: 0 0 6px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Grocery</h3>
       <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 62ch; text-wrap: pretty">The week’s plan becomes a priced list, grouped by aisle, ready to order in one tap.</p>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px">
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px">
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/08-grocery.png" alt="grocery for this week" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">grocery for this week</figcaption></figure>
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/08-grocery-list.png" alt="checklist with estimated total" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">checklist with estimated total</figcaption></figure>
         <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="uploads/11-food-detail.png" alt="ingredients and preparation" style="width: 100%; display: block; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.94 0.008 265)" /><figcaption style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">ingredients and preparation</figcaption></figure>

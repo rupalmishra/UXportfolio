@@ -32,6 +32,40 @@
   a { color: oklch(0.8 0.12 250); text-decoration: none; }
   a:hover { color: oklch(0.8 0.14 45); }
   ::selection { background: oklch(0.75 0.15 250 / 0.3); }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { overflow-x: hidden; max-width: 100%; }
+
+  /* responsive: collapse fixed grids, keep tables scrollable */
+  img, svg, table { max-width: 100%; }
+  @media (max-width: 1080px) {
+    [style*="grid-template-columns: 1.28fr"],
+    [style*="grid-template-columns: 0.62fr"],
+    [style*="grid-template-columns: 1fr 380px"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns: 0.9fr"],
+    [style*="grid-template-columns: 1.1fr"] { grid-template-columns: minmax(0,1fr) !important; gap: 36px !important; }
+    [style*="grid-template-columns: 190px 1fr 1.25fr"] { grid-template-columns: minmax(0,1fr) !important; gap: 10px !important; }
+    [style*="grid-template-columns: repeat(4"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+    [style*="grid-template-columns: 0.85fr 1.15fr"],
+    [style*="grid-template-columns: 1.15fr 0.85fr"] { grid-template-columns: minmax(0,1fr) !important; gap: 20px !important; }
+  }
+  @media (max-width: 860px) {
+    [style*="grid-template-columns: repeat(3"],
+    [style*="grid-template-columns: repeat(2"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+    div:has(> table) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { min-width: 560px; }
+  }
+  @media (max-width: 620px) {
+    [style*="grid-template-columns"] { grid-template-columns: minmax(0,1fr) !important; gap: 16px !important; }
+    section, header, nav { padding-left: 18px !important; padding-right: 18px !important; }
+    nav [style*="gap: 26px"] { gap: 15px !important; font-size: 13px !important; }
+    header { padding-top: 48px !important; padding-bottom: 32px !important; }
+    [style*="grid-template-columns: 250px 1fr"] { grid-template-columns: minmax(0,1fr) !important; gap: 8px !important; }
+    h2 { font-size: 26px !important; }
+    h3 { font-size: 24px !important; }
+    a[style*="justify-content: space-between"][style*="padding: 40px"] { flex-direction: column !important; align-items: flex-start !important; padding: 28px !important; }
+  }
 </style>
 </helmet>
 
@@ -47,6 +81,14 @@
     </div>
     <h1 style="margin: 0 0 24px; font-size: clamp(32px, 5vw, 48px); line-height: 0.98; letter-spacing: -0.042em; font-weight: 600; text-wrap: balance">A creative job portal for the <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400">artists</span></h1>
     <p style="margin: 0; font-size: 20px; line-height: 1.55; color: oklch(0.78 0.014 265); max-width: 58ch; text-wrap: pretty">Lok Katha connects independent artists directly with clients — no middlemen, fair pay, and a place for local art forms to be seen.</p>
+    <div style="margin-top: 34px; border: 1px solid oklch(0.305 0.013 265); border-left: 2px solid oklch(0.8 0.14 45); border-radius: 12px; background: oklch(0.225 0.015 265); padding: 24px 28px 26px">
+      <div style="font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: oklch(0.8 0.14 45); margin-bottom: 14px">Outcome</div>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: oklch(0.84 0.012 265); max-width: 74ch; text-wrap: pretty">A self-directed case study taken to a tested prototype: one onboarding that splits cleanly into an artist path and a client path, with rates and past work stated up front.</p>
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: oklch(0.84 0.012 265); max-width: 74ch; text-wrap: pretty">What it is worth: it removes the two things that cost the artists I researched their work &mdash; no portfolio away from a personal account, and no price until the negotiation is already going badly.</p>
+      </div>
+    </div>
+
   </header>
 
   <div style="max-width: 1000px; margin: 0 auto; padding: 0 32px">
@@ -157,7 +199,37 @@
   <section style="max-width: 1000px; margin: 0 auto; padding: 72px 32px 0">
     <p style="margin: 0 0 14px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.8 0.14 45)">06 · Users</p>
     <h2 style="margin: 0 0 22px; font-size: 32px; line-height: 1.15; letter-spacing: -0.03em; font-weight: 600">Two artists, the same two problems</h2>
-    <img src="uploads/user personas.png" alt="User personas" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+<p style="margin: 0 0 26px; padding: 12px 16px; border-left: 2px solid oklch(0.8 0.14 45); font-size: 15px; line-height: 1.55; color: oklch(0.7 0.015 265); max-width: 76ch; text-wrap: pretty">Grounded in desk research rather than interviews: artist forums, independent-artist profiles and bios, and reported hiring and commission practices in India&rsquo;s folk and freelance art market. I have marked it as secondhand because it is, and it is the first thing I would fix with more time in the field.</p>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <h3 style="margin: 0; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Meera Rathore, 27</h3>
+          <p style="margin: 0; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.015 265)">Mural &amp; mandala artist · Jaipur</p>
+        </div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.62; color: oklch(0.84 0.012 265); text-wrap: pretty">Gets almost all her work through Instagram DMs and word of mouth. She has no rate card, so every enquiry turns into a negotiation she is not confident in, and a good share of them stop replying at the budget question. Her portfolio is a highlights reel on a personal account she also uses for family photos.</p>
+        <p style="margin: 0; padding-left: 16px; border-left: 2px solid oklch(0.8 0.14 45); font-family: 'Instrument Serif', serif; font-style: italic; font-size: 21px; line-height: 1.35; color: oklch(0.92 0.01 265); text-wrap: pretty">&ldquo;Half my enquiries die at &lsquo;what&rsquo;s your budget?&rsquo;&rdquo;</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 4px">
+          <p style="margin: 0; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.015 265)">What they need</p>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>A portfolio separate from her personal account</span></div>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Rates stated once, before the conversation starts</span></div>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Local commissions she does not have to already know someone to hear about</span></div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <h3 style="margin: 0; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Ashish Sahu, 34</h3>
+          <p style="margin: 0; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.015 265)">Gond folk artist · Bhopal</p>
+        </div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.62; color: oklch(0.84 0.012 265); text-wrap: pretty">Sells mostly at melas and exhibitions, and through a dealer who takes a cut and controls who sees the work. He reads limited English and does most things on a shared phone, so any flow built around typed search and long forms loses him at the first screen.</p>
+        <p style="margin: 0; padding-left: 16px; border-left: 2px solid oklch(0.8 0.14 45); font-family: 'Instrument Serif', serif; font-style: italic; font-size: 21px; line-height: 1.35; color: oklch(0.92 0.01 265); text-wrap: pretty">&ldquo;The middleman finds the buyer. I only find out what the price was afterwards.&rdquo;</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 4px">
+          <p style="margin: 0; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.015 265)">What they need</p>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>A visual-first flow with very little typing</span></div>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Direct contact with buyers, without a broker in between</span></div>
+          <div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; font-size: 15px; line-height: 1.55; color: oklch(0.84 0.012 265)"><span style="color: oklch(0.8 0.14 45)">&rarr;</span><span>Proof of past work that travels without him</span></div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section style="max-width: 1120px; margin: 0 auto; padding: 72px 32px 0">
@@ -177,7 +249,9 @@
       <div style="padding: 20px; border: 1px solid oklch(0.305 0.013 265); border-radius: 10px; background: oklch(0.225 0.015 265)"><p style="margin: 0 0 8px; font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.72 0.14 15)">05</p><p style="margin: 0; font-size: 16px; font-weight: 600">Feedback</p></div>
     </div>
 
-    <div style="margin-top: 44px">
+    <p style="margin: 44px 0 0; font-size: 13px; color: oklch(0.6 0.015 265)">The process below — wireframes through hi-fi mockups — is from the original 2023 design.</p>
+
+    <div style="margin-top: 20px">
       <h3 style="margin: 0 0 6px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Wireframes</h3>
       <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 62ch; text-wrap: pretty">The flow was argued out on paper first — screen order, primary versus tertiary actions, and where the artist and client paths diverge.</p>
       <img src="uploads/pen frames.png" alt="Initial wireframes on paper" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
@@ -193,11 +267,34 @@
     </div>
 
     <div style="margin-top: 44px">
-      <h3 style="margin: 0 0 6px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Hi-fi wireframes</h3>
-      <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); max-width: 62ch; text-wrap: pretty">Deep maroon and cream, with illustrations carrying each onboarding step so no screen asks for too much at once.</p>
-      <div style="display: flex; flex-direction: column; gap: 18px">
-        <img src="uploads/hifi1.png" alt="Hi-fi wireframes, onboarding and profile setup" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
-        <img src="uploads/hifi2.png" alt="Hi-fi wireframes, search, events and artist profiles" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+      <h3 style="margin: 0 0 6px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Hi-fi screens</h3>
+      <p style="margin: 0 0 18px; font-size: 16px; line-height: 1.6; color: oklch(0.76 0.014 265); text-wrap: pretty">Deep maroon and cream, with illustrations carrying each onboarding step so no screen asks for too much at once.</p>
+      <div style="margin: 0 0 26px; padding: 16px 18px; border: 1px solid oklch(0.4 0.08 45); border-radius: 10px; background: oklch(0.24 0.03 45 / 0.4); font-size: 14px; line-height: 1.6; color: oklch(0.84 0.012 265);">
+        <strong style="color: oklch(0.8 0.14 45); font-weight: 600">Revisited, 2025:</strong> Lok Katha was originally designed in 2023. The screens below are a redesign of the final flow, done as I've grown as a designer — the process and research above reflect the original project.
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px">
+        <img src="uploads/01-welcome.png" alt="Welcome" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/02-sign-up.png" alt="Sign up" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/03-log-in.png" alt="Log in" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/04-preference-selection.png" alt="Preference selection" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/05-account-created.png" alt="Account created" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/06-setup-art-form.png" alt="Setup: art form" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/07-setup-location.png" alt="Setup: location" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/08-setup-rate.png" alt="Setup: rate" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/09-setup-portfolio.png" alt="Setup: portfolio" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/10-profile-live.png" alt="Profile live" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/11-client-home.png" alt="Client home" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/12-explore-results.png" alt="Explore results" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/13-filters.png" alt="Filters" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/14-artist-profile.png" alt="Artist profile" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/15-booking-request.png" alt="Booking request" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/16-request-sent.png" alt="Request sent" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/17-work-feed.png" alt="Work feed" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/18-job-detail.png" alt="Job detail" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/19-apply-sheet.png" alt="Apply sheet" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/20-applied.png" alt="Applied confirmation" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/21-notifications.png" alt="Notifications" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
+        <img src="uploads/22-artist-dashboard.png" alt="Artist dashboard" style="width: 100%; display: block; border: 1px solid oklch(0.33 0.013 265); border-radius: 12px" />
       </div>
     </div>
   </section>
