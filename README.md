@@ -14,7 +14,7 @@ them instead. Everything else in the folder is already local.
 ## Files
 
 - `index.html` — landing page
-- `efile.html`, `ecap-care.html`, `calmory.html`, `lok-katha.html`, `instagram-stories.html` — case studies
+- `efile.html`, `file-manager-features.html`, `calmory.html`, `lok-katha.html`, `instagram-stories.html` — case studies
 - `support.js` — the runtime that renders the pages (must sit next to the HTML files)
 - `image-slot.js` — image drop component used on the landing page
 - `uploads/` — every image the site loads

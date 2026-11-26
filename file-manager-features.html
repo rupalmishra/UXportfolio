@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Other features shipped in File Manager — Rupal Mishra</title>
+<meta name="description" content="Four smaller features shipped alongside the ECAP File Manager rebuild, plus one idea still in research.">
+<meta property="og:title" content="Other features shipped in File Manager — Rupal Mishra">
+<meta property="og:description" content="Four smaller features shipped alongside the ECAP File Manager rebuild, plus one idea still in research.">
+<meta property="og:type" content="website">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Caveat:wght@500;600&family=Shantell+Sans:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background-color: oklch(0.185 0.014 265); color: oklch(0.94 0.008 265); font-family: "Geist", system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(1.1px 1.1px at 12% 18%, oklch(0.92 0.02 265 / 0.5), transparent 100%),
+      radial-gradient(1px 1px at 63% 42%, oklch(0.92 0.02 265 / 0.38), transparent 100%),
+      radial-gradient(1.3px 1.3px at 85% 77%, oklch(0.92 0.02 265 / 0.42), transparent 100%),
+      radial-gradient(1px 1px at 34% 88%, oklch(0.92 0.02 265 / 0.3), transparent 100%),
+      radial-gradient(1.6px 1.6px at 50% 12%, oklch(0.9 0.03 265 / 0.3), transparent 100%),
+      radial-gradient(1.2px 1.2px at 22% 65%, oklch(0.9 0.03 265 / 0.26), transparent 100%);
+    background-size: 260px 260px, 260px 260px, 260px 260px, 260px 260px, 430px 430px, 430px 430px;
+    background-attachment: fixed;
+  }
+  a { color: oklch(0.8 0.12 250); text-decoration: none; }
+  a:hover { color: oklch(0.8 0.14 45); }
+  ::selection { background: oklch(0.75 0.15 250 / 0.3); }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { overflow-x: hidden; max-width: 100%; }
+  img, svg, table { max-width: 100%; }
+  @media (max-width: 1080px) {
+    [style*="grid-template-columns: repeat(4"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+    [style*="grid-template-columns: repeat(3"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+    [style*="grid-template-columns: 1.1fr 1fr"] { grid-template-columns: minmax(0,1fr) !important; }
+  }
+  @media (max-width: 620px) {
+    [style*="grid-template-columns"] { grid-template-columns: minmax(0,1fr) !important; gap: 16px !important; }
+    section, header, nav { padding-left: 18px !important; padding-right: 18px !important; }
+    header { padding-top: 48px !important; padding-bottom: 32px !important; }
+    h2 { font-size: 26px !important; }
+    h3 { font-size: 24px !important; }
+    a[style*="justify-content: space-between"][style*="padding: 40px"] { flex-direction: column !important; align-items: flex-start !important; padding: 28px !important; }
+  }
+</style>
+</helmet>
+
+<div>
+  <nav style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 32px; background: oklch(0.185 0.014 265 / 0.84); backdrop-filter: blur(10px); border-bottom: 1px solid oklch(0.305 0.013 265)">
+    <a href="index.html" style="font-family: 'DM Mono', monospace; font-size: 14px; color: oklch(0.78 0.014 265)" style-hover="color: oklch(0.8 0.14 45)">← back to all work</a>
+  </nav>
+
+  <header style="max-width: 1000px; margin: 0 auto; padding: 76px 32px 48px">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 32px; font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265); margin-bottom: 26px">
+      <span>ESCRIBA · 2025–26 · Part of the ECAP File Manager rebuild</span>
+      <span style="flex: none; letter-spacing: 0.04em">2026</span>
+    </div>
+    <h1 style="margin: 0 0 24px; font-size: clamp(32px, 5vw, 48px); line-height: 0.98; letter-spacing: -0.042em; font-weight: 600; text-wrap: balance">Other features <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400">shipped in File Manager</span></h1>
+    <p style="margin: 0; font-size: 20px; line-height: 1.55; color: oklch(0.78 0.014 265); max-width: 58ch; text-wrap: pretty">Four smaller features shipped alongside the main <a href="efile.html" style="text-decoration: underline">File Manager case study</a>, plus one idea still in research.</p>
+
+    <div style="margin-top: 40px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.215 0.015 265); padding: 30px 30px 32px">
+      <div style="font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: oklch(0.8 0.14 45); margin-bottom: 22px">What shipped</div>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px 30px">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.62 0.015 265)">01</span>
+          <h3 style="margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.022em">Grid / list view</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: oklch(0.76 0.014 265)">Thumbnail grid, category filter, group by, and icon sizes on top of the existing list.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.62 0.015 265)">02</span>
+          <h3 style="margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.022em">Supported file extensions</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: oklch(0.76 0.014 265)">Formats surfaced on the upload screen, before the upload runs instead of after it fails.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.62 0.015 265)">03</span>
+          <h3 style="margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.022em">Sharing outside ECAP</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: oklch(0.76 0.014 265)">A Share link for people outside the platform, with access and expiry controls.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.62 0.015 265)">04</span>
+          <h3 style="margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.022em">Quick Start redesign</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: oklch(0.76 0.014 265)">A hero banner and card-based features replacing a paragraph of dense text.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section style="max-width: 1120px; margin: 0 auto; padding: 0 32px 0">
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; border-top: 1px solid oklch(0.305 0.013 265); border-bottom: 1px solid oklch(0.305 0.013 265); padding: 26px 0">
+      <div><p style="margin: 0 0 6px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.66 0.015 265)">My role</p><p style="margin: 0; font-size: 16px; line-height: 1.45">Product Designer</p></div>
+      <div><p style="margin: 0 0 6px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.66 0.015 265)">Timeline</p><p style="margin: 0; font-size: 16px; line-height: 1.45">Sept 2025 · ongoing, alongside the main release cycle</p></div>
+    </div>
+  </section>
+
+  <section style="max-width: 1120px; margin: 0 auto; padding: 72px 32px 0">
+    <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px">
+      <span style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.8 0.14 45)">01</span>
+      <h2 style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: oklch(0.66 0.015 265)">Shipped</h2>
+    </div>
+    <h3 style="margin: 0 0 14px; font-size: 28px; line-height: 1.2; letter-spacing: -0.03em; font-weight: 600; max-width: 34ch; text-wrap: pretty">Four more features, same module, same users.</h3>
+    <p style="margin: 0; font-size: 16px; line-height: 1.6; color: oklch(0.74 0.015 265); max-width: 68ch">Same research, same backlog, smaller scope. Each fix removes a point where users had to guess or work around a gap.</p>
+  </section>
+
+  <section style="max-width: 1120px; margin: 0 auto; padding: 40px 32px 0">
+    <h4 style="margin: 0 0 10px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Grid / list view</h4>
+    <p style="margin: 0 0 28px; font-size: 16px; line-height: 1.6; color: oklch(0.74 0.015 265); max-width: 68ch">Folders of images or scans showed only file names, so users opened each file to see what it was. Four changes give more control over browsing:</p>
+
+    <div style="border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.215 0.015 265); padding: 22px 24px; margin-bottom: 16px">
+      <img src="uploads/pasted-1788881101191-0.png" alt="Grid view of files and folders" style="width: 100%; display: block; border-radius: 8px; margin-bottom: 16px" />
+      <p style="margin: 0 0 6px; font-size: 16px; font-weight: 600">Grid / list toggle</p>
+      <p style="margin: 0 0 10px; font-size: 14px; line-height: 1.55; color: oklch(0.74 0.015 265); max-width: 68ch">Users switch between a thumbnail grid and a list depending on the task: scanning images, or skimming details. The most well-received part of the redesign.</p>
+      <p style="margin: 0; font-size: 13px; line-height: 1.5; color: oklch(0.66 0.015 265)"><span style="color: oklch(0.8 0.14 45)">Impact — </span>more control over how they browse, and faster recognition in image-heavy or scanned-document folders.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; align-items: stretch">
+      <div style="display: flex; flex-direction: column; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.215 0.015 265); padding: 18px 20px">
+        <img src="uploads/pasted-1788934891483-0.png" alt="Group by dropdown" style="width: 100%; height: 200px; object-fit: cover; display: block; border-radius: 8px; margin-bottom: 14px" />
+        <p style="margin: 0 0 6px; font-size: 14px; font-weight: 600">Group by</p>
+        <p style="margin: 0 0 8px; font-size: 13px; line-height: 1.5; color: oklch(0.74 0.015 265); flex: 1">Clusters files by type, date, or size instead of one long list.</p>
+        <p style="margin: 0; font-size: 12px; line-height: 1.5; color: oklch(0.66 0.015 265)"><span style="color: oklch(0.8 0.14 45)">Impact — </span>large folders feel organized, not overwhelming.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.215 0.015 265); padding: 18px 20px">
+        <img src="uploads/pasted-1788932901553-0.png" alt="Category dropdown: All, Recently Modified, Favorites, Recycle Bin" style="width: 100%; height: 200px; object-fit: cover; display: block; border-radius: 8px; margin-bottom: 14px" />
+        <p style="margin: 0 0 6px; font-size: 14px; font-weight: 600">Page categorization</p>
+        <p style="margin: 0 0 8px; font-size: 13px; line-height: 1.5; color: oklch(0.74 0.015 265); flex: 1">Jump straight to Favorites, Recents, or the Recycle Bin.</p>
+        <p style="margin: 0; font-size: 12px; line-height: 1.5; color: oklch(0.66 0.015 265)"><span style="color: oklch(0.8 0.14 45)">Impact — </span>frequent files are a click away, not a search.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.215 0.015 265); padding: 18px 20px">
+        <img src="uploads/pasted-1788935071731-0.png" alt="View dropdown: small, medium, large icons" style="width: 100%; height: 200px; object-fit: cover; display: block; border-radius: 8px; margin-bottom: 14px" />
+        <p style="margin: 0 0 6px; font-size: 14px; font-weight: 600">Icon size control</p>
+        <p style="margin: 0 0 8px; font-size: 13px; line-height: 1.5; color: oklch(0.74 0.015 265); flex: 1">Small, medium, or large icons in grid view.</p>
+        <p style="margin: 0; font-size: 12px; line-height: 1.5; color: oklch(0.66 0.015 265)"><span style="color: oklch(0.8 0.14 45)">Impact — </span>fits more on screen, or zooms in on thumbnails.</p>
+      </div>
+    </div>
+
+    <div style="border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.215 0.015 265); padding: 18px 20px">
+      <p style="margin: 0 0 6px; font-size: 15px; font-weight: 600">Explicit close on file preview</p>
+      <p style="margin: 0 0 10px; font-size: 14px; line-height: 1.55; color: oklch(0.74 0.015 265); max-width: 68ch">Replaced click-outside-to-dismiss with an explicit close button &mdash; users kept losing their preview by accident.</p>
+      <p style="margin: 0; font-size: 12px; line-height: 1.5; color: oklch(0.66 0.015 265)"><span style="color: oklch(0.8 0.14 45)">Impact — </span>fewer accidental dismissals, less re-opening the same file.</p>
+    </div>
+  </section>
+
+  <section style="max-width: 1120px; margin: 0 auto; padding: 64px 32px 0">
+    <h4 style="margin: 0 0 10px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Supported file extensions</h4>
+    <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: oklch(0.74 0.015 265); max-width: 68ch">Users learned which file types were supported only after an upload failed. The full format list now shows on the upload screen.</p>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-family: 'DM Mono', monospace; font-size: 13px; color: oklch(0.78 0.12 165); margin-bottom: 16px">
+      <span>Fails after upload</span><span style="color: oklch(0.66 0.015 265)">→</span><span>Formats shown up front</span>
+    </div>
+    <p style="margin: 0; font-size: 13px; line-height: 1.6; color: oklch(0.66 0.015 265)"><span style="color: oklch(0.8 0.14 45)">Impact — </span>fewer failed uploads and support questions.</p>
+  </section>
+  <section style="max-width: 1280px; margin: 0 auto; padding: 24px 32px 0">
+    <img src="uploads/pasted-1788880269752-0.png" alt="Upload dialog showing supported file formats" style="width: 100%; display: block; border-radius: 12px" />
+  </section>
+
+  <section style="max-width: 1120px; margin: 0 auto; padding: 64px 32px 0">
+    <h4 style="margin: 0 0 10px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Sharing outside ECAP</h4>
+    <p style="margin: 0 0 28px; font-size: 16px; line-height: 1.6; color: oklch(0.74 0.015 265); max-width: 68ch">Sharing worked only between ECAP users. Vendors, clients, and auditors outside the platform had to be sent a downloaded copy. Added a Share link with access and expiry controls.</p>
+
+    <div style="border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.215 0.015 265); padding: 20px; margin-bottom: 28px">
+      <img src="uploads/List view with selected row.png" alt="File manager with Share action highlighted" style="width: 100%; height: auto; display: block; border-radius: 8px" />
+    </div>
+
+    <p style="margin: 0 0 20px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: oklch(0.62 0.015 265)">Walking through the share dialog</p>
+    <div style="position: relative; width: 100%; max-width: 664px; margin: 0 auto 8px">
+      <img src="uploads/Frame 1066.png" alt="Share document dialog" style="width: 51.2%; margin-left: auto; height: auto; display: block; border-radius: 8px; border: 1px solid oklch(0.305 0.013 265)" />
+
+      <div style="position: absolute; left: 0; width: 44.6%; top: 18.8%; transform: translateY(-50%); text-align: right; font-family: 'Shantell Sans', cursive; font-size: clamp(14px, 3.2vw, 21px); line-height: 1.25; font-weight: 500; color: oklch(0.8 0.14 45)">shows exactly what's being shared before it goes out</div>
+      <div style="position: absolute; left: 44.6%; width: 4.2%; height: 1px; top: 18.8%; border-top: 2px dashed oklch(0.8 0.14 45 / 0.6)"></div>
+      <div style="position: absolute; left: 48.2%; top: 18.8%; width: 8px; height: 8px; border-radius: 50%; background: oklch(0.8 0.14 45); transform: translate(-50%, -50%)"></div>
+
+      <div style="position: absolute; left: 0; width: 44.6%; top: 66%; transform: translateY(-50%); text-align: right; font-family: 'Shantell Sans', cursive; font-size: clamp(14px, 3.2vw, 21px); line-height: 1.25; font-weight: 500; color: oklch(0.8 0.14 45)">can add a person, a whole team, or a role</div>
+      <div style="position: absolute; left: 44.6%; width: 4.2%; height: 1px; top: 66%; border-top: 2px dashed oklch(0.8 0.14 45 / 0.6)"></div>
+      <div style="position: absolute; left: 48.2%; top: 66%; width: 8px; height: 8px; border-radius: 50%; background: oklch(0.8 0.14 45); transform: translate(-50%, -50%)"></div>
+
+      <div style="position: absolute; left: 0; width: 44.6%; top: 80%; transform: translateY(-50%); text-align: right; font-family: 'Shantell Sans', cursive; font-size: clamp(14px, 3.2vw, 21px); line-height: 1.25; font-weight: 500; color: oklch(0.8 0.14 45)">link expires on its own, no manual cleanup</div>
+      <div style="position: absolute; left: 44.6%; width: 4.2%; height: 1px; top: 80%; border-top: 2px dashed oklch(0.8 0.14 45 / 0.6)"></div>
+      <div style="position: absolute; left: 48.2%; top: 80%; width: 8px; height: 8px; border-radius: 50%; background: oklch(0.8 0.14 45); transform: translate(-50%, -50%)"></div>
+
+      <div style="position: absolute; left: 0; width: 44.6%; top: 89.8%; transform: translateY(-50%); text-align: right; font-family: 'Shantell Sans', cursive; font-size: clamp(14px, 3.2vw, 21px); line-height: 1.25; font-weight: 500; color: oklch(0.8 0.14 45)">a clear summary before anything is sent</div>
+      <div style="position: absolute; left: 44.6%; width: 4.2%; height: 1px; top: 89.8%; border-top: 2px dashed oklch(0.8 0.14 45 / 0.6)"></div>
+      <div style="position: absolute; left: 48.2%; top: 89.8%; width: 8px; height: 8px; border-radius: 50%; background: oklch(0.8 0.14 45); transform: translate(-50%, -50%)"></div>
+    </div>
+
+    <div style="margin-top: 20px; font-family: 'DM Mono', monospace; font-size: 13px; color: oklch(0.78 0.12 165); display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+      <span>Download + send elsewhere</span><span style="color: oklch(0.66 0.015 265)">→</span><span>Share link with access/expiry controls</span>
+    </div>
+  </section>
+
+  <section style="max-width: 1120px; margin: 0 auto; padding: 64px 32px 0">
+    <h4 style="margin: 0 0 10px; font-size: 24px; letter-spacing: -0.025em; font-weight: 600">Quick Start redesign</h4>
+    <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: oklch(0.74 0.015 265); max-width: 68ch">The old Quick Start was a static wall of outdated text, with nothing clickable. Rebuilt as a hero banner with a Learn More button, feature cards, and Quick Actions and Resources panels linking to the wiki, training, and support docs.</p>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-family: 'DM Mono', monospace; font-size: 13px; color: oklch(0.78 0.12 165)">
+      <span>Paragraph to read</span><span style="color: oklch(0.66 0.015 265)">→</span><span>Hero + cards + quick actions</span>
+    </div>
+  </section>
+  <section style="max-width: 1280px; margin: 0 auto; padding: 24px 32px 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px">
+    <div>
+      <p style="margin: 0 0 8px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.66 0.015 265)">Before</p>
+      <img src="uploads/pasted-1788880620496-0.png" alt="Quick Start before redesign" style="width: 100%; display: block; border-radius: 12px; image-rendering: -webkit-optimize-contrast" />
+    </div>
+    <div>
+      <p style="margin: 0 0 8px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.66 0.015 265)">After</p>
+      <img src="uploads/pasted-1788880637918-0.png" alt="Quick Start after redesign, top half" style="width: 100%; display: block; border-radius: 12px; image-rendering: -webkit-optimize-contrast; margin-bottom: 8px" />
+      <img src="uploads/pasted-1789462691069-0.png" alt="Quick Start after redesign, scrolled to show Quick Actions and Resources panels" style="width: 100%; display: block; border-radius: 12px; image-rendering: -webkit-optimize-contrast" />
+    </div>
+  </section>
+
+  <section style="max-width: 1120px; margin: 0 auto; padding: 64px 32px 0">
+    <h2 style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: oklch(0.66 0.015 265)">Impact</h2>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px">
+      <div style="display: flex; align-items: center; gap: 12px; padding: 20px 22px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: oklch(0.78 0.12 165)"></span>
+        <p style="margin: 0; font-size: 16px; font-weight: 500">Folders of scans can be scanned visually, not opened one by one</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 20px 22px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: oklch(0.78 0.12 165)"></span>
+        <p style="margin: 0; font-size: 16px; font-weight: 500">Users check the format list instead of guessing and hitting an error</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 20px 22px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: oklch(0.78 0.12 165)"></span>
+        <p style="margin: 0; font-size: 16px; font-weight: 500">Vendors and clients get a link, not a re-sent copy</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 20px 22px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: oklch(0.78 0.12 165)"></span>
+        <p style="margin: 0; font-size: 16px; font-weight: 500">New users land on what the platform does, not a paragraph</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1120px; margin: 0 auto; padding: 72px 32px 0">
+    <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px">
+      <span style="font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.8 0.14 45)">02</span>
+      <h2 style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: oklch(0.66 0.015 265)">In progress</h2>
+    </div>
+    <h3 style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; letter-spacing: -0.03em; font-weight: 600; max-width: 36ch; text-wrap: pretty">An idea everyone liked immediately &mdash; still needs the research to back it.</h3>
+    <p style="margin: 0 0 6px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.78 0.12 165)">Save Draft while uploading</p>
+    <p style="margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: oklch(0.84 0.012 265); text-wrap: pretty; max-width: 62ch">Save a half-finished upload as a draft and come back to it later. Early exploration below.</p>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px">
+      <div style="border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; overflow: hidden; background: oklch(0.225 0.015 265)">
+        <img src="uploads/pasted-1788880906573-0.png" alt="Save Draft mock: upload dialog with Save Draft option" style="display: block; width: 100%" />
+      </div>
+      <div style="border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; overflow: hidden; background: oklch(0.225 0.015 265)">
+        <img src="uploads/pasted-1788880923636-0.png" alt="Save Draft mock: drafts list with Publish action" style="display: block; width: 100%" />
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 24px">
+      <div style="padding: 22px 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <p style="margin: 0 0 6px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: oklch(0.7 0.015 265)">What it is</p>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: oklch(0.84 0.012 265); text-wrap: pretty">A button in the upload dialog that saves a half-finished upload as a draft. The files and the metadata already typed in are kept. The draft sits in a Drafts list, and the user opens it later and publishes when ready.</p>
+      </div>
+      <div style="padding: 22px 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <p style="margin: 0 0 6px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: oklch(0.7 0.015 265)">Why I proposed it</p>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: oklch(0.84 0.012 265); text-wrap: pretty">Uploads break all the time &mdash; a closed tab, a dropped connection, a batch too big to finish in one sitting. Today all of that work is gone and the user types everything again. Users also told us they often start an upload before they have every detail ready, so they need somewhere to park it.</p>
+      </div>
+    </div>
+      <div style="margin: 16px 0; padding: 20px 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <p style="margin: 0 0 10px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.66 0.015 265)">UX principles behind it</p>
+        <ul style="margin: 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.55; color: oklch(0.82 0.012 265)">
+          <li><span style="color: oklch(0.78 0.12 165); font-weight: 600">Prevention over recovery</span> &mdash; nothing entered is thrown away when an upload stops.</li>
+          <li><span style="color: oklch(0.78 0.12 165); font-weight: 600">Zeigarnik effect</span> &mdash; the unfinished upload stays visible as a draft instead of vanishing.</li>
+          <li><span style="color: oklch(0.78 0.12 165); font-weight: 600">Recognition over recall</span> &mdash; reopening a draft restores the metadata already entered.</li>
+          <li><span style="color: oklch(0.78 0.12 165); font-weight: 600">Jakob's Law</span> &mdash; Save Draft and a Drafts list reuse a pattern from email and docs.</li>
+          <li><span style="color: oklch(0.78 0.12 165); font-weight: 600">Visibility of system status</span> &mdash; Drafts (1) and Publish (0) counters show what is waiting.</li>
+          <li><span style="color: oklch(0.78 0.12 165); font-weight: 600">Flexibility &amp; efficiency</span> &mdash; bulk publish finishes several drafts in one action.</li>
+        </ul>
+      </div>
+    <div style="padding: 22px 24px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265)">
+        <div>
+          <p style="margin: 0 0 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: oklch(0.7 0.015 265)">Why it is still in research</p>
+          <p style="margin: 0 0 10px; font-size: 16px; line-height: 1.6; color: oklch(0.84 0.012 265); max-width: 62ch; text-wrap: pretty">Everyone liked the idea, but liking it is not the same as knowing how it should work. A draft touches upload validation and storage, so there are open questions we cannot answer from the whiteboard:</p>
+          <ul style="margin: 0 0 10px; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.55; color: oklch(0.82 0.012 265); max-width: 62ch">
+            <li>Does a draft hold the actual files, or only the details around them?</li>
+            <li>How long do we keep a draft before it is cleaned up?</li>
+            <li>What happens to a draft that fails validation when it is finally published?</li>
+          </ul>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: oklch(0.84 0.012 265); max-width: 62ch; text-wrap: pretty">Until those are settled the feature cannot be scoped honestly. The screens below are early exploration, not a final design.</p>
+        </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1000px; margin: 0 auto; padding: 76px 32px 40px">
+    <a href="calmory.html" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 40px; border: 1px solid oklch(0.305 0.013 265); border-radius: 12px; background: oklch(0.225 0.015 265); color: oklch(0.94 0.008 265)" style-hover="border-color: oklch(0.75 0.15 250); background: oklch(0.265 0.018 265)">
+      <div>
+        <p style="margin: 0 0 8px; font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">Next case study</p>
+        <h3 style="margin: 0; font-size: 32px; letter-spacing: -0.03em; font-weight: 600">Calmory: a diet tracker</h3>
+      </div>
+      <span style="font-size: 32px; color: oklch(0.75 0.15 250)">→</span>
+    </a>
+  </section>
+
+  <footer style="padding: 24px 32px 40px; max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 12px; color: oklch(0.66 0.015 265)">
+    <a href="index.html" style="color: oklch(0.66 0.015 265)">Rupal Mishra</a>
+    <a href="mailto:rupalmishra.2003@gmail.com" style="color: oklch(0.66 0.015 265)">rupalmishra.2003@gmail.com</a>
+  </footer>
+</div>
+
+</x-dc>
+</body>
+</html>
